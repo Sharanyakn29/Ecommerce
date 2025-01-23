@@ -1,0 +1,12 @@
+
+@media (max-width:600px) {
+.list-style{
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+}
+.text-center p{
+    font-size: small; 
+}
+
+}

@@ -1,0 +1,68 @@
+.item-img{
+    width: 105px;
+    height: 85px;
+}
+.delete-icon{
+    width: 23px;
+    height: 23px;
+    border: 2px solid gray;
+    padding: 3px;
+}
+.titles{
+    margin-top: 5rem;
+    font-size: large;
+}
+.promo-container{
+    background:rgb(228 227 227);
+    width: 400px;
+}
+.promo-input{
+    border: none;
+    background:rgb(228 227 227);
+    padding: 6px;
+    width: 240px;
+}
+.promo-btn{
+    border-radius: 0%;
+    border: 1px solid black;
+    width: 160px;
+}
+.hr{
+    height: 1.5px;
+    border: none;
+    background-color: gray;
+    margin: 1.5px;
+}
+/* .cart-totals hr{
+    margin: 2px;
+} */
+@media (max-width:600px) {
+    .para-font{
+        font-size: small;    
+    }
+    .item-img{
+        width: 160px;
+        height: 180px;
+    }
+    .promo-input{
+        padding: 6px;
+        width: 170px;
+    }
+    .promo-btn{
+        width: 100px;
+    }
+    .promo-container{
+        background:rgb(228 227 227);
+        width: 270px;
+    }
+    .delete-icon{
+        width: 20px;
+        height: 20px;
+        border: 1px solid gray;
+        padding: 4px;
+    }
+    .pay-btn{
+        width: 178px;
+        font-size: small;
+    }
+}

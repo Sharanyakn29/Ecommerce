@@ -1,0 +1,33 @@
+.offers{
+    background: linear-gradient(180deg,#fde1ff,#e1ffea22 60%);
+}
+.offers h1{
+    font-size: 4rem;
+}
+.offers button{
+    width: 10rem;
+    height: 3rem;
+    font-size: large;
+}
+@media (min-width:1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+        max-width:1170px
+    }     
+}
+@media (max-width:600px) {
+    .offers{
+        max-width: 320px;
+    }
+    .offers h1{
+        font-size: 1.2rem;
+    }
+    .offers p{
+        font-size: 10px;
+    }
+    .offers button{
+        width: 5rem;
+        height: 1.7rem;
+        font-size: 10px;
+        padding: 3px;
+}
+}

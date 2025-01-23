@@ -1,0 +1,38 @@
+.newsletter{
+    background: linear-gradient(180deg,#fde1ff,#e1ffea22 60%);
+}
+.input-group{
+    justify-content:center ;
+}
+.newsletter-input{
+    width: 23rem;
+    border-radius: 7px;
+    border: 1px solid gray;
+    padding: 1rem;
+}
+.newsletter-input ::placeholder{
+    margin-left: 2rem;
+}
+@media (max-width:600px) {
+    .newsletter{
+        max-width: 320px;
+    }
+    .newsletter h1{
+        font-size: medium;
+    }
+    .newsletter p{
+        font-size: x-small;
+    }
+    .newsletter button{
+        width: 4.3rem;
+        font-size: 10px;
+        height: 33px;
+        margin: 0;
+        padding: 0;
+    }
+    .newsletter-input{
+        width: 10rem;
+        font-size: 10px;
+        height: 23px;
+    }
+}

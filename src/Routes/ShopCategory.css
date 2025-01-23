@@ -1,0 +1,29 @@
+.sort-btn{
+    width: 85px;
+    height: 35px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 75px;
+    font-size: 17px;
+    font-weight: 500;
+    background: white;
+    cursor: pointer;
+}
+
+@media (max-width:600px) {
+    .sort-text{
+        font-size: small;
+    }
+    .sort-btn{
+        width: 70px;
+        height: 25px;
+        outline: none;
+        border: 1px solid gray;
+        border-radius: 75px;
+        font-size: small;
+        font-weight: 500;
+        background: white;
+        cursor: pointer;
+    }
+    
+    }

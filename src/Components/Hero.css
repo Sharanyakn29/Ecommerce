@@ -1,0 +1,31 @@
+.col-6 h1{
+    font-size: 5rem;
+    line-height: 4.5rem;
+}
+.col-6 h4{
+    font-weight: 1000;
+}
+.hero{
+    background: linear-gradient(180deg,#fde1ff,#e1ffea22 60%);
+}
+.handIcon{
+    width: 100px;
+}
+@media screen and  (max-width:500px){
+
+   .col-6 h1{
+    font-size: 23px;
+    line-height: 1;
+} 
+.handIcon{
+    width: 1.5rem;
+    height:1.5rem;
+}
+.col-6 h4{
+    font-size: 13px;
+    font-weight: 700;
+}
+.col-6 button{
+   font-size: 10px;
+}
+}

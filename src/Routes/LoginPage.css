@@ -1,0 +1,48 @@
+.login-main-container{
+    padding-top: 90px;
+    padding-bottom: 90px;
+    background: #fce3fe;
+    width: 100%;
+}
+.login-container{
+    width: 580px;
+    height: 450px;
+    background: white;
+    margin: auto;
+    padding: 40px 60px;
+}
+.input{
+    height: 50px;
+    font-size: small;
+}
+.login-container input::placeholder{
+    font-size: small;
+}
+.login-container button{
+    width: 459px;
+    height: 3rem;
+}
+.login-container p{
+    font-size: small;
+}
+.checkbox{
+    width: 15px;
+}
+
+@media (max-width:600px) {
+    .login-container{
+        width: 310px;
+        height: 445px;
+        background: white;
+        margin: auto;
+        padding: 55px 35px;
+    }
+    .login-container button{
+        width: 240px;
+        height: 40px;
+    }
+    .login-container input{
+        height: 40px;
+        font-size: small;
+    }
+}
