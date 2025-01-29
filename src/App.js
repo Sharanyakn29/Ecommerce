@@ -15,7 +15,6 @@ import kids_banner from '../src/Assets/banner_kids.png'
 import SignUpPage from './Routes/SignUpPage';
 import ForgotPassword from './Routes/ForgotPassword';
 
-
 function App() {
 
   const[error,setError] = useState('')
@@ -56,10 +55,10 @@ function App() {
   }  
 
   return (
-    <div>
+    <>
       <Navbar isLoggedIn={isLoggedIn}/>
         <Routes>
-          <Route path='/' element={<Shop />}></Route>
+          <Route path="/" element={<Shop/>}></Route>
           <Route path='/men' element={<ShopCategory category={"men"} banner={men_banner}/>}></Route>
           <Route path='/women' element={<ShopCategory category={"women"} banner={women_banner} />}></Route>
           <Route path='/kids' element={<ShopCategory category={"kid"} banner={kids_banner} />}></Route>
@@ -72,7 +71,7 @@ function App() {
           <Route path='/Cart' element={<Cart/>}></Route>
         </Routes>
         <Footer></Footer>
-    </div>
+    </>
   );
 }
 

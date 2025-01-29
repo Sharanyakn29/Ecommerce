@@ -5,7 +5,7 @@ import Item from './Item'
 export default function RelatedProducts(props) {
     const {all_products} = useContext(shopContext)
     const required = all_products.filter((product)=> props.category === product.category).slice(0,4)
-    console.log(props.category)
+
   return (
     <div className='container mt-lg-5 mt-4'>
     <h1 className='fw-bold text-center mb-lg-4 mb-4 text'> RELATED PRODUCTS</h1>

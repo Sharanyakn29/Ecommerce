@@ -30,7 +30,7 @@ export default function SignUpPage() {
         return
       }
       if (!validatePassword(password)){
-        setError(`Password must be 8-16 character long.\n Must contain atleast one capital letter,small letter,a digit and one special charater.\n No spaces allowed.`)
+        alert(`Password must be 8-16 character long.\nMust contain atleast one capital letter,small letter,a digit and one special charater.\nNo spaces allowed.`)
         return
       }
       if(password !== confirmPassword){
@@ -49,22 +49,22 @@ export default function SignUpPage() {
 
   return (
     <div className='login-main-container'>
-      <div className='login-container'>
+      <div className='signup-container'>
         <h3 className='mb-3'>Sign Up</h3>
         <div>
-          <input type='text' placeholder='Your name' className="input form-control my-lg-2 my-1"  name="userId" value={formData.userId} onChange={handleChange}></input>
+          <input type='text' placeholder='Your name' className="input form-control my-2"  name="userId" value={formData.userId} onChange={handleChange}></input>
 
-          <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder='Password'className="input form-control my-lg-2 my-1" ></input>
+          <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder='Password'className="input form-control my-2" ></input>
 
           <input type="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} 
-          placeholder='Confirm Password'  className="input form-control my-lg-2 my-1"></input>
+          placeholder='Confirm Password'  className="input form-control my-2"></input>
         </div>
 
         <div>
           <button className='btn btn-danger'onClick={handleSignUp}>Continue</button>
         </div>
 
-        <p className='mt-3 '>Already have an account? <span className='text-danger fw-bold'style={{cursor:"pointer"}} onClick={()=>navigate('/LoginPage')}>Login here</span></p>
+        <p className='mt-2 '>Already have an account? <span className='text-danger fw-bold'style={{cursor:"pointer"}} onClick={()=>navigate('/LoginPage')}>Login here</span></p>
 
         <div className='d-flex align-items-center'>
           <input type='checkbox'className='checkbox' ></input>

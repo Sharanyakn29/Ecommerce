@@ -3,6 +3,9 @@ img{
 }
 @media (min-width:300px) and (max-width:600px){
     .img-name{
-        font-size:small;
-    }    
+        font-size:x-small;
+    }   
+    .prices{
+        font-size: x-small;
+    } 
 }

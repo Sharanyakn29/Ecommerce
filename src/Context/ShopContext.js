@@ -5,72 +5,112 @@ import all_products from '../Assets/all_product'
 
 export const shopContext = createContext(null)
 
-const defaultCart = () =>{
-  let cart = {}
-  for(let index =0; index<all_products.length +1 ;index++){
-    cart[index] = 0
-  }
-  return cart
-}
+// const defaultCart = () =>{
+//   let cart = {}
+//   for(let index =0; index<all_products.length +1 ;index++){
+//     cart[index] = 0
+//   }
+//   return cart
+// }
 
-const defaultSize = () =>{
-  let sizes = {}
-  for(let index =0; index<all_products.length +1 ;index++){
-    sizes[index] = ' '
-  }
-  return sizes
-}
 
 function ShopContextProvider(props) {
 
-  const[cartItems,setCartItems] = useState(defaultCart())
-  const[itemSize,setItemSize] = useState(defaultSize())
+  // const[cartItems,setCartItems] = useState(defaultCart())
 
-  const getTotalCartAmount = (item) =>{
-    let totalAmount = 0
-    for(let item in cartItems){
-      if(cartItems[item] > 0){
-        const itemInfo = all_products.find((product) => product.id === Number(item))
-        totalAmount += itemInfo.new_price * cartItems[item]      
-      }
-    }
-    return totalAmount  
-    }
+  // const addToCart = (itemId) =>{
+  //   const size = itemSize[itemId.id]
+  //   console.log(size)
+ 
+  //     setCartItems((prev) => ({...prev,[itemId]:prev[itemId]+1}))
+  // }
 
-  const getTotalCartItems = (item) =>{
-    let totalItems = 0
-    for(let item in cartItems){
-      if(cartItems[item] > 0){
-        totalItems += cartItems[item]      
-        console.log(cartItems[item]) 
-      }
-    }
-    return totalItems
-    }
+  //   const removeFromCart = (itemId) =>{
+  //     setCartItems((prev) => ({...prev,[itemId]:prev[itemId]-1}))
+  //   }
 
-    const addToCart = (itemId) =>{
-      const size = itemSize[itemId]
-
-      if(!size){
-        alert("Please select the size")
-      }
-      setCartItems((prev) => ({...prev,[itemId]:prev[itemId]+1}))
-    }
-
-    const removeFromCart = (itemId) =>{
-      setCartItems((prev) => ({...prev,[itemId]:prev[itemId]-1}))
-    }
-
-    const addItemSize = (itemId,size) =>{
-      setItemSize((prev) => ({...prev,[itemId]:prev[itemId]+' '+size}))
-    }
+    const [cartItems,setCartItems] = useState([])
+    const [selectedSizes,setSelectedSizes] = useState({itemId:"XS"})
+    console.log(cartItems)
 
     const handleSizeSelect = (itemId,size) =>{
-      setItemSize((prev)=> ({...prev,[itemId]:size}))
+      setSelectedSizes({...selectedSizes,[itemId]:size})
     }
 
+    const addToCart = (item) =>{
+      const selectedSize = selectedSizes[item.id]
+      if(!selectedSize) {
+        alert("Please select a size before adding to cart!")
+        return
+      }
 
-    const contextValue = {all_products,cartItems,addToCart,removeFromCart,itemSize,handleSizeSelect,addItemSize,getTotalCartAmount,getTotalCartItems}
+      const existingItem = cartItems.find((cartitem) => cartitem.id === item.id && cartitem.size === selectedSize)
+      if(existingItem){
+        setCartItems(
+          cartItems.map((cartitem)=> cartitem.id === item.id && cartitem.size === selectedSize ?{...cartitem, quantity:cartitem.quantity+1}:cartitem))
+      }
+      else{
+        setCartItems([...cartItems,{...item,size:selectedSize,quantity:1}])
+      }
+
+      // setSelectedSizes({...selectedSizes,[item.id]:null})
+    }
+
+    const removeFromCart = (itemId,size) =>{
+      setCartItems(cartItems.filter((cartItem)=>!(cartItem.id === itemId && cartItem.size === size) ))
+      }
+
+      
+  // const getTotalCartAmount = (item) =>{
+  //   let totalAmount = 0
+  //   for(let item in cartItems){
+  //     if(cartItems[item] > 0){
+  //       const itemInfo = all_products.find((product) => product.id === Number(item))
+  //       totalAmount += itemInfo.new_price * cartItems[item]      
+  //     }
+  //   }
+  //   return totalAmount  
+  //   }
+
+    // const getTotalCartAmount = (item)=>{
+    //   let totalAmount = 0
+    //   for(let item in cartItems){
+    //     if(item.quantity > 0){
+    //       const itemInfo = all_products.find((product) => product.id === Number(item.id))
+    //       totalAmount += itemInfo.new_price * item.quantity  
+    //       console.log(totalAmount)    
+    //     }
+    //   }
+    //   return totalAmount  
+    //   }
+
+   
+    const getTotalCartAmount =()=>{
+      let totalAmount = 0
+      cartItems.map((item)=>{
+        if(item.quantity > 0){
+
+          const itemInfo = all_products.find((product) => product.id === Number(item.id))
+          totalAmount += itemInfo.new_price * item.quantity 
+          console.log(totalAmount)  
+        }    
+      }     
+     )
+    return totalAmount  
+    } 
+
+    const getTotalCartItems = (item) =>{
+      let totalItems = 0
+      cartItems.map((item)=>{
+        if(item.quantity > 0){
+          totalItems += item.quantity  
+        }    
+      }     
+      )
+      return totalItems
+    }   
+
+  const contextValue = {all_products,cartItems,addToCart,removeFromCart,handleSizeSelect,getTotalCartAmount,selectedSizes,getTotalCartItems}
     
   return (
     <div>

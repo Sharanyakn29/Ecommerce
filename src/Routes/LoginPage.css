@@ -6,24 +6,41 @@
 }
 .login-container{
     width: 580px;
-    height: 450px;
+    height: 475px;
+    background: white;
+    margin: auto;
+    padding: 40px 60px;
+}
+.signup-container{
+    width: 580px;
+    height: 475px;
     background: white;
     margin: auto;
     padding: 40px 60px;
 }
 .input{
     height: 50px;
-    font-size: small;
+    font-size: medium;
 }
 .login-container input::placeholder{
-    font-size: small;
+    font-size: medium;
 }
 .login-container button{
     width: 459px;
     height: 3rem;
 }
 .login-container p{
-    font-size: small;
+    font-size: medium;
+}
+.signup-container input::placeholder{
+   font-size: medium;
+}
+.signup-container button{
+   width: 459px;
+   height: 3rem;
+}
+.signup-container p{
+    font-size: medium;
 }
 .checkbox{
     width: 15px;
@@ -32,17 +49,46 @@
 @media (max-width:600px) {
     .login-container{
         width: 310px;
-        height: 445px;
+        height: 410px;
         background: white;
         margin: auto;
-        padding: 55px 35px;
+        padding: 50px 35px;
+    }
+    .signup-container{
+        width: 310px;
+        height: 430px;
+        background: white;
+        margin: auto;
+        padding: 40px 35px;
     }
     .login-container button{
         width: 240px;
         height: 40px;
+        font-size: small;
     }
     .login-container input{
         height: 40px;
+        font-size: small;
+    }
+    .login-container p{
+        font-size: small;
+    }
+    .login-container input::placeholder{
+        font-size: small;
+    }
+    .signup-container button{
+        width: 240px;
+        height: 40px;
+        font-size: small;
+    }
+    .signup-container input{
+        height: 40px;
+        font-size: small;
+    }
+    .signup-container p{
+        font-size: small;
+    }
+    .signup-container input::placeholder{
         font-size: small;
     }
 }

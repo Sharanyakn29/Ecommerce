@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
 import { shopContext } from '../Context/ShopContext'
 import remove_icon from '../Assets/cart_cross_icon.png'
+import { Link } from 'react-router-dom'
 import './CartItems.css'
 
 const CartItems = () => {
 
-const {all_products,cartItems,removeFromCart,itemSize,getTotalCartAmount} = useContext(shopContext)
+const {cartItems,removeFromCart,getTotalCartAmount} = useContext(shopContext)
 
     return (
     <div className='container'>
@@ -20,9 +21,9 @@ const {all_products,cartItems,removeFromCart,itemSize,getTotalCartAmount} = useC
                 <div className='col-2'>Remove</div>
             </div>
         </div>
-        <hr  class=" hr"></hr>
+        <hr  class=" hr d-lg-block d-none"></hr>
 
-            {all_products.map((e) =>{
+            {/* {all_products.map((e) =>{
                 if(cartItems[e.id] >0 && itemSize[e.id]!==''){
                     return <div className='cart-items row d-flex justify-content-evenly align-items-center para-font my-lg-0 my-3'>
                                 <div className='col-lg-1 col-6'><img src={e.image} alt='' className='item-img my-lg-2 img-fluid'></img> </div>
@@ -39,15 +40,43 @@ const {all_products,cartItems,removeFromCart,itemSize,getTotalCartAmount} = useC
                                         <span className='d-lg-none fw-bold'>Qty:</span> <span>{cartItems[e.id]}</span></div>
 
                                     <div className='col-lg-2 text-lg-center my-lg-0 my-1'>
-                                        <span className='d-lg-none fw-bold'>Total:</span> <span>{e.new_price * cartItems[e.id]}</span></div>
+                                        <span className='d-lg-none fw-bold'>Total:</span> <span>$ {e.new_price * cartItems[e.id]}</span></div>
 
                                     <div className='col-lg-2 d-flex justify-content-center align-self-center'>
                                         <img src={remove_icon} onClick={() => removeFromCart(e.id)} className='delete-icon' alt=""></img>
                                      </div>                 
                                 </div> 
                             </div> 
+                        }
+                })} */}
+                
+            {cartItems.map((item,index) =>{
+            return <div key={index} className='cart-items row d-flex justify-content-evenly align-items-center para-font my-lg-0 my-3'>
+                        <div className='col-lg-1 col-6'>
+                            <Link to={`/product/${item.id}`}><img src={item.image} alt='' className='item-img my-lg-2 img-fluid'></img> 
+                            </Link> 
+                        </div>
+                        <div className='col-lg-10 col-6 d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-center px-0'>
+                            <div className='col-lg-4'> <p className='mb-0'>{item.name}</p></div>  
+                            <div className='col-lg-1 text-lg-center my-lg-0 my-1'>
+                            <span className='d-lg-none text-start fw-bold'>Size:</span> <span>{item.size}</span></div> 
+
+                            <div className='col-lg-2 text-lg-center my-lg-0 my-1'>
+                            <span className='d-lg-none fw-bold'>Price:</span> <span>$ {item.new_price}</span></div>   
+
+                            <div className='col-lg-1 text-lg-center my-lg-0 my-1'>
+                            <span className='d-lg-none fw-bold'>Qty:</span> <span>{item.quantity}</span></div>
+
+                            <div className='col-lg-2 text-lg-center my-lg-0 my-1'>
+                            <span className='d-lg-none fw-bold'>Total:</span> <span>$ {item.new_price * item.quantity}</span></div>
+
+                            <div className='col-lg-2 d-flex justify-content-center align-self-center'>
+                                <img src={remove_icon} onClick={() => removeFromCart(item.id,item.size)} className='delete-icon' alt=""></img>
+                            </div>                 
+                        </div> 
+                    </div> 
+                        })
                 }
-            })}
             <div className='row my-5 para-font'>
                 <div className='col-lg-6 col-12 cart-totals '>
                     <h3 className='mb-lg-3'>Cart totals</h3>
